@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor MQTT Simple</title>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c3e50; }
+        .data-box {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2980b9;
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 5px solid #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Monitor de Temperatura</h1>
+        <p>Datos en tiempo real recibidos desde la ESP32:</p>
+        
+        <div id="temperatura-display" class="data-box">
+            Esperando datos...
+        </div>
+    </div>
+
+    <script>
+        // Conectar con el servidor Flask-SocketIO
+        const socket = io();
+
+        // Escuchar el evento 'nuevo_mensaje' que configuramos en Python
+        socket.on('nuevo_mensaje', function(msg) {
+            // Actualizar el contenido del DIV con el mensaje recibido
+            document.getElementById('temperatura-display').innerText = msg.data;
+        });
+    </script>
+
+</body>
+</html>
