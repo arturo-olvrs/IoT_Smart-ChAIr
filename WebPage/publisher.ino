@@ -1,6 +1,17 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
+
+/**
+ * Steps:
+ * 1. SSID and password of your WiFi network (Arturo’s iPhone)
+      - In personal AP (from phone), maximize compatibility
+ * 2. MQTT Broker IP adress (ifconfig)
+ * 3. See the assigned IP address of your ESP32 in the Serial Monitor
+ * 4. sudo ufw allow from X to any port 1883 proto tcp
+ * 5. sudo ufw reload
+ */
+
 // 1. Configuración de tu red WiFi
 const char* ssid = "X";
 const char* password = "X";
