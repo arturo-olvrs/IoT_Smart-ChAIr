@@ -2,6 +2,29 @@
 
 ## The link to the common folder is [here](https://drive.google.com/drive/folders/1vy685r2IYYLLrJJtexPPP0kG4qTNNphn?usp=sharing).
 
+### Michael Breyer Update on 09.07.2026
+
+# ToF Sensor Implementation
+
+## ESP32 Pin Assignment
+
+For the current ESP32 board, the following GPIO pins have been reserved for the 3 ToF sensors:
+
+| Sensor | GPIO Pin |
+|--------|----------|
+| SCL (all)| GPIO22 |
+| SDA (all)| GPIO21 |
+| XSHUT 1 | GPIO27 or 14|
+| XSHUT 2 | GPIO26 or 15|
+| XSHUT 3 | GPIO25 or 16|
+
+## ToF Sensor Development 
+
+I had some issues with assigning the correct I2C addresses to the sensors at first, due to an error in the code causing issues at the bit-level, causing sensor addresses to overlap. Fix was made and different addresses, 2 apart, where assigned (0x30 & 0x32 instead of 0x30 & 0x31). 
+
+The current code includes a comparison between 2 ToF sensors with a manually settable tolerance. This allows us to ring the buzzer, given a certain differnece between Sensor 1 and Sensor 2. 
+
+
 ### Sebghat Yarzada Update on 05.07.2026
 
 # FSR Sensor Implementation
