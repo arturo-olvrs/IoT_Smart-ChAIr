@@ -20,7 +20,7 @@
 // ---------- FSR Configuration ----------
 // TODO: These values need to be calibrated when the sensors are installed in their final positions.
 #define FSR_THRESHOLD 0             // Minimum ADC value to count as pressure
-#define FSR_BALANCE_TOLERANCE 20    // Allowed difference between paired sensors in percentage
+#define FSR_BALANCE_TOLERANCE 40    // Allowed difference between paired sensors in percentage
 
 // --------- PIR Sensor ----------
 // DONE: Its FoV needs to be calibrated when the sensor is installed in its final position.
